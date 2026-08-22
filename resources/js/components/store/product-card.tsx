@@ -12,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
     return (
         <article className="flex flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div className="mb-4 flex h-28 items-center justify-center rounded-xl bg-linear-to-br from-glow via-secondary to-primary">
+            <div className="mb-4 flex h-28 items-center justify-center rounded-xl bg-muted">
                 <ShoppingBag className="h-10 w-10 text-glow-ink/70" />
             </div>
             {product.category && (

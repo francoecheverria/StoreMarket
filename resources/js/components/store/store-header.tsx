@@ -1,3 +1,4 @@
+import AppearanceToggleDropdown from '@/components/appearance-dropdown';
 import SearchBar from '@/components/store/search-bar';
 import StoreLogo from '@/components/store/store-logo';
 import { Button } from '@/components/ui/button';
@@ -28,6 +29,7 @@ export default function StoreHeader() {
                             Carrito ({cartCount})
                         </Link>
                     </Button>
+                    <AppearanceToggleDropdown />
                     {auth.user ? (
                         <>
                             {auth.user.is_admin && (

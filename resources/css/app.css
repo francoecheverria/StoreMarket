@@ -82,6 +82,42 @@
 }
 
 :root {
+    --background: #fff8f2;
+    --foreground: #080603;
+    --card: #ffffff;
+    --card-foreground: #080603;
+    --popover: #ffffff;
+    --popover-foreground: #080603;
+    --primary: #9a702e;
+    --primary-foreground: #fff8f2;
+    --secondary: #ead1bd;
+    --secondary-foreground: #080603;
+    --muted: #ead1bd;
+    --muted-foreground: #9a702e;
+    --accent: #ead1bd;
+    --accent-foreground: #080603;
+    --destructive: hsl(0, 84.2%, 60.2%);
+    --destructive-foreground: #fff8f2;
+    --border: color-mix(in srgb, #bd8e53 28%, #ead1bd);
+    --input: color-mix(in srgb, #bd8e53 32%, #ead1bd);
+    --ring: #9a702e;
+    --chart-1: #9a702e;
+    --chart-2: #bd8e53;
+    --chart-3: #ead1bd;
+    --chart-4: #080603;
+    --chart-5: color-mix(in srgb, #9a702e 70%, #080603);
+    --radius: 0.5rem;
+    --sidebar-background: #fff8f2;
+    --sidebar-foreground: #080603;
+    --sidebar-primary: #9a702e;
+    --sidebar-primary-foreground: #fff8f2;
+    --sidebar-accent: #ead1bd;
+    --sidebar-accent-foreground: #080603;
+    --sidebar-border: color-mix(in srgb, #bd8e53 28%, #ead1bd);
+    --sidebar-ring: #9a702e;
+}
+
+.dark {
     --background: #ead1bd;
     --foreground: #080603;
     --card: color-mix(in srgb, #ead1bd 62%, white);
@@ -106,7 +142,6 @@
     --chart-3: #ead1bd;
     --chart-4: #080603;
     --chart-5: color-mix(in srgb, #9a702e 70%, #080603);
-    --radius: 0.5rem;
     --sidebar-background: #ead1bd;
     --sidebar-foreground: #080603;
     --sidebar-primary: #9a702e;
@@ -115,41 +150,6 @@
     --sidebar-accent-foreground: #080603;
     --sidebar-border: color-mix(in srgb, #bd8e53 40%, #ead1bd);
     --sidebar-ring: #9a702e;
-}
-
-.dark {
-    --background: #080603;
-    --foreground: #ead1bd;
-    --card: color-mix(in srgb, #080603 82%, #9a702e);
-    --card-foreground: #ead1bd;
-    --popover: color-mix(in srgb, #080603 82%, #9a702e);
-    --popover-foreground: #ead1bd;
-    --primary: #bd8e53;
-    --primary-foreground: #080603;
-    --secondary: #9a702e;
-    --secondary-foreground: #ead1bd;
-    --muted: color-mix(in srgb, #9a702e 28%, #080603);
-    --muted-foreground: #ead1bd;
-    --accent: #9a702e;
-    --accent-foreground: #ead1bd;
-    --destructive: hsl(0, 84%, 60%);
-    --destructive-foreground: #ead1bd;
-    --border: color-mix(in srgb, #bd8e53 35%, #080603);
-    --input: color-mix(in srgb, #bd8e53 35%, #080603);
-    --ring: #bd8e53;
-    --chart-1: #bd8e53;
-    --chart-2: #9a702e;
-    --chart-3: #ead1bd;
-    --chart-4: #080603;
-    --chart-5: color-mix(in srgb, #ead1bd 50%, #bd8e53);
-    --sidebar-background: #080603;
-    --sidebar-foreground: #ead1bd;
-    --sidebar-primary: #bd8e53;
-    --sidebar-primary-foreground: #080603;
-    --sidebar-accent: #9a702e;
-    --sidebar-accent-foreground: #ead1bd;
-    --sidebar-border: color-mix(in srgb, #bd8e53 35%, #080603);
-    --sidebar-ring: #bd8e53;
 }
 
 @layer base {

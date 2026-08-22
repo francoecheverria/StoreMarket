@@ -13,6 +13,16 @@
         @viteReactRefresh
         @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
         @inertiaHead
+        <script>
+            (function () {
+                const appearance = localStorage.getItem('appearance') || 'dark';
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.classList.toggle(
+                    'dark',
+                    appearance === 'dark' || (appearance === 'system' && prefersDark),
+                );
+            })();
+        </script>
     </head>
     <body class="font-sans antialiased">
         @inertia
