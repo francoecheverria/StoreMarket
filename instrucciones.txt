@@ -1,13 +1,5 @@
-Ocurre cuando Laravel intenta cachear las vistas con php artisan view:cache. El problema es que la configuración de Laravel no puede encontrar la ruta de las vistas compiladas.
+Desplegué MariaDB exitosamente en tu proyecto — está online con volumen persistente. Sin embargo, el sistema tiene un patch en estado COMMITTED que bloquea la conexión de las variables de base de datos a StoreMarket por ahora.
 
-Esto sucede porque:
+Lo que falta: conectar las 5 variables de referencia (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD) a tu servicio StoreMarket para que Laravel pueda comunicarse con MariaDB.
 
-Tu configuración de vistas (config/view.php) apunta a una ruta que no existe o no está configurada correctamente en el entorno de producción
-O la variable VIEW_CACHE_PATH no está seteada
-Soluciones:
-
-Opción 1: Desactivar el cacheo de vistas en el build La forma más rápida es quitar el comando php artisan view:cache del proceso de build. Déjame ayudarte a crear un PR con esta corrección.
-
-Opción 2: Fijar la configuración de Laravel Asegurar que config/view.php tiene rutas válidas en producción.
-
-¿Quieres que cree un PR que elimine el php artisan view:cache del build (Opción 1), o prefieres revisar tu configuración de Laravel primero?
+Envíame otro mensaje para continuar y terminaré la conexión.
