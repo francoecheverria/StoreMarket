@@ -9,12 +9,12 @@ export default function CategorySidebar({
     activeSlug?: string;
 }) {
     return (
-        <aside className="rounded-2xl border border-amber-100 bg-white p-5 shadow-sm">
-            <h2 className="mb-4 text-sm font-semibold tracking-wide text-amber-900 uppercase">Categorías</h2>
+        <aside className="rounded-2xl border border-border bg-card p-5 shadow-sm">
+            <h2 className="mb-4 text-sm font-semibold tracking-wide text-primary uppercase">Categorías</h2>
             <nav className="space-y-1">
                 <Link
                     href={route('home')}
-                    className={`block rounded-lg px-3 py-2 text-sm ${!activeSlug ? 'bg-amber-100 font-medium text-amber-950' : 'text-stone-600 hover:bg-amber-50'}`}
+                    className={`block rounded-lg px-3 py-2 text-sm ${!activeSlug ? 'bg-secondary font-medium text-secondary-foreground' : 'text-muted-foreground hover:bg-muted'}`}
                 >
                     Todas
                 </Link>
@@ -23,7 +23,7 @@ export default function CategorySidebar({
                         key={category.id}
                         href={route('home', { category: category.slug })}
                         className={`block rounded-lg px-3 py-2 text-sm ${
-                            activeSlug === category.slug ? 'bg-amber-100 font-medium text-amber-950' : 'text-stone-600 hover:bg-amber-50'
+                            activeSlug === category.slug ? 'bg-secondary font-medium text-secondary-foreground' : 'text-muted-foreground hover:bg-muted'
                         }`}
                     >
                         {category.name}

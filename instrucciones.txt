@@ -1,5 +1,0 @@
-Desplegué MariaDB exitosamente en tu proyecto — está online con volumen persistente. Sin embargo, el sistema tiene un patch en estado COMMITTED que bloquea la conexión de las variables de base de datos a StoreMarket por ahora.
-
-Lo que falta: conectar las 5 variables de referencia (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD) a tu servicio StoreMarket para que Laravel pueda comunicarse con MariaDB.
-
-Envíame otro mensaje para continuar y terminaré la conexión.

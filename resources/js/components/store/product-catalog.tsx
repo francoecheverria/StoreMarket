@@ -4,7 +4,7 @@ import { Product } from '@/types';
 export default function ProductCatalog({ products }: { products: Product[] }) {
     if (products.length === 0) {
         return (
-            <div className="rounded-2xl border border-dashed border-amber-200 bg-white/70 p-10 text-center text-stone-500">
+            <div className="rounded-2xl border border-dashed border-border bg-card/70 p-10 text-center text-muted-foreground">
                 No hay productos para mostrar.
             </div>
         );

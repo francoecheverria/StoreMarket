@@ -18,12 +18,12 @@ export default function SearchBar({ className = '' }: { className?: string }) {
 
     return (
         <form onSubmit={submit} className={`relative ${className}`}>
-            <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-amber-800/50" />
+            <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-primary/50" />
             <Input
                 value={data.q}
                 onChange={(event) => setData('q', event.target.value)}
                 placeholder="Buscar por título..."
-                className="border-amber-200 bg-white pl-9"
+                className="border-border bg-card pl-9"
             />
         </form>
     );

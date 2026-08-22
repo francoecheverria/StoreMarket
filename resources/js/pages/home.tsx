@@ -25,8 +25,8 @@ export default function Home({ banner, products, filters, activeCategory }: Home
             <Banner title={banner.title} description={banner.description} price={banner.price} />
             <section className="mt-10">
                 <div className="mb-6">
-                    <h2 className="text-2xl font-semibold text-stone-900">{heading}</h2>
-                    <p className="mt-1 text-sm text-stone-500">Cada producto tiene título, descripción y precio.</p>
+                    <h2 className="text-2xl font-semibold text-foreground">{heading}</h2>
+                    <p className="mt-1 text-sm text-muted-foreground">Cada producto tiene título, descripción y precio.</p>
                 </div>
                 <ProductCatalog products={products} />
             </section>

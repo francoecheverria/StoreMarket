@@ -1,4 +1,5 @@
 import SearchBar from '@/components/store/search-bar';
+import StoreLogo from '@/components/store/store-logo';
 import { Button } from '@/components/ui/button';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
@@ -8,10 +9,10 @@ export default function StoreHeader() {
     const { auth, cartCount, name } = usePage<SharedData>().props;
 
     return (
-        <header className="sticky top-0 z-20 border-b border-amber-100 bg-amber-50/90 backdrop-blur">
+        <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur">
             <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 md:flex-row md:items-center">
-                <Link href={route('home')} className="text-xl font-semibold tracking-tight text-amber-950">
-                    {name}
+                <Link href={route('home')} className="shrink-0" aria-label={name}>
+                    <StoreLogo className="h-14 w-auto" />
                 </Link>
                 <SearchBar className="md:max-w-md md:flex-1" />
                 <nav className="flex flex-wrap items-center gap-2">

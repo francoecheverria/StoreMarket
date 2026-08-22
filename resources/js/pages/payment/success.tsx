@@ -7,9 +7,9 @@ import { Link } from '@inertiajs/react';
 export default function PaymentSuccess({ order }: { order: Order | null }) {
     return (
         <StoreLayout title="Pago aprobado">
-            <div className="rounded-2xl border border-emerald-200 bg-white p-8">
-                <h1 className="text-3xl font-semibold text-emerald-800">Pago aprobado</h1>
-                <p className="mt-2 text-stone-600">Mercado Pago confirmó tu compra.</p>
+            <div className="rounded-2xl border border-border bg-card p-8">
+                <h1 className="text-3xl font-semibold text-primary">Pago aprobado</h1>
+                <p className="mt-2 text-muted-foreground">Mercado Pago confirmó tu compra.</p>
                 {order && (
                     <p className="mt-4 text-lg">
                         Pedido #{order.id} — {formatPrice(order.total)}

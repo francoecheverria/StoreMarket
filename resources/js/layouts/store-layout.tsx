@@ -13,7 +13,7 @@ export default function StoreLayout({
     const { categories, flash } = usePage<SharedData>().props;
 
     return (
-        <div className="min-h-screen bg-[#FBF7F2] text-stone-900">
+        <div className="min-h-screen bg-background text-foreground">
             <Head title={title} />
             <StoreHeader />
             <main className="mx-auto max-w-6xl px-4 py-8">

@@ -24,11 +24,11 @@ export default function Contact() {
     return (
         <StoreLayout title="Contacto">
             <h1 className="text-3xl font-semibold">Contacto</h1>
-            <p className="mt-2 max-w-2xl text-stone-500">
+            <p className="mt-2 max-w-2xl text-muted-foreground">
                 Dejanos un título, una descripción y, si aplica, un precio de referencia para tu consulta.
             </p>
 
-            <form onSubmit={submit} className="mt-8 max-w-xl space-y-5 rounded-2xl border border-amber-100 bg-white p-6">
+            <form onSubmit={submit} className="mt-8 max-w-xl space-y-5 rounded-2xl border border-border bg-card p-6">
                 <div className="grid gap-2">
                     <Label htmlFor="title">Título</Label>
                     <Input id="title" value={data.title} onChange={(event) => setData('title', event.target.value)} />
