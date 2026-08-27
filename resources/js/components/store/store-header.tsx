@@ -4,10 +4,10 @@ import StoreLogo from '@/components/store/store-logo';
 import { Button } from '@/components/ui/button';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { ShoppingBag } from 'lucide-react';
+import { MessageCircle, ShoppingBag } from 'lucide-react';
 
 export default function StoreHeader() {
-    const { auth, cartCount, name } = usePage<SharedData>().props;
+    const { auth, cartCount, name, whatsappUrl } = usePage<SharedData>().props;
 
     return (
         <header className="sticky top-0 z-20 border-b border-border bg-background/90 backdrop-blur">
@@ -21,8 +21,18 @@ export default function StoreHeader() {
                         <Link href={route('home')}>Catálogo</Link>
                     </Button>
                     <Button variant="ghost" asChild>
-                        <Link href={route('contact.create')}>Contacto</Link>
+                        <Link href={route('contact.create')} prefetch>
+                            Contacto
+                        </Link>
                     </Button>
+                    {whatsappUrl && (
+                        <Button variant="ghost" asChild>
+                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="gap-2">
+                                <MessageCircle className="h-4 w-4" />
+                                WhatsApp
+                            </a>
+                        </Button>
+                    )}
                     <Button variant="outline" asChild>
                         <Link href={route('cart.index')} className="gap-2">
                             <ShoppingBag className="h-4 w-4" />

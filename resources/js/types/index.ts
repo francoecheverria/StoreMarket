@@ -70,6 +70,7 @@ export interface SharedData {
     auth: Auth;
     cartCount: number;
     categories: Category[];
+    whatsappUrl: string | null;
     flash: {
         success: string | null;
         error: string | null;

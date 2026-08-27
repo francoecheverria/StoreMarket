@@ -8,8 +8,9 @@ import { PropsWithChildren } from 'react';
 export default function StoreLayout({
     title,
     activeCategory,
+    withSidebar = true,
     children,
-}: PropsWithChildren<{ title: string; activeCategory?: string }>) {
+}: PropsWithChildren<{ title: string; activeCategory?: string; withSidebar?: boolean }>) {
     const { categories, flash } = usePage<SharedData>().props;
 
     return (
@@ -23,10 +24,14 @@ export default function StoreLayout({
                 {flash.error && (
                     <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{flash.error}</div>
                 )}
-                <div className="grid gap-8 lg:grid-cols-[240px_1fr]">
-                    <CategorySidebar categories={categories} activeSlug={activeCategory} />
-                    <div>{children}</div>
-                </div>
+                {withSidebar ? (
+                    <div className="grid gap-8 lg:grid-cols-[240px_1fr]">
+                        <CategorySidebar categories={categories} activeSlug={activeCategory} />
+                        <div>{children}</div>
+                    </div>
+                ) : (
+                    children
+                )}
             </main>
             <StoreFooter />
         </div>

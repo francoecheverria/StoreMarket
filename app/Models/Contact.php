@@ -7,15 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     protected $fillable = [
-        'title',
-        'description',
-        'price',
+        'name',
+        'message',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'price' => 'decimal:2',
-        ];
-    }
 }

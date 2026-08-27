@@ -9,4 +9,8 @@ return [
         ),
         'price' => env('STORE_BANNER_PRICE', 12990),
     ],
+
+    'whatsapp' => [
+        'number' => env('WHATSAPP_NUMBER'),
+    ],
 ];

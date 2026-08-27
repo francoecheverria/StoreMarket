@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Category;
 use App\Services\CartService;
+use App\Support\WhatsApp;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -45,6 +46,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'cartCount' => app(CartService::class)->count(),
             'categories' => Category::query()->orderBy('name')->get(['id', 'name', 'slug']),
+            'whatsappUrl' => WhatsApp::url(),
             'flash' => [
                 'success' => $request->session()->get('success'),
                 'error' => $request->session()->get('error'),

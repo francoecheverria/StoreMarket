@@ -1,10 +1,10 @@
 import StoreLogo from '@/components/store/store-logo';
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { Mail, ShoppingBag } from 'lucide-react';
+import { MessageCircle, ShoppingBag } from 'lucide-react';
 
 export default function StoreFooter() {
-    const { name } = usePage<SharedData>().props;
+    const { name, whatsappUrl } = usePage<SharedData>().props;
 
     return (
         <footer className="mt-16 border-t border-border bg-card">
@@ -21,9 +21,14 @@ export default function StoreFooter() {
                         <Link href={route('cart.index')} className="inline-flex items-center gap-2">
                             <ShoppingBag className="h-4 w-4" /> Carrito
                         </Link>
-                        <Link href={route('contact.create')} className="inline-flex items-center gap-2">
-                            <Mail className="h-4 w-4" /> Contacto
+                        <Link href={route('contact.create')} prefetch className="inline-flex items-center gap-2">
+                            <MessageCircle className="h-4 w-4" /> Contacto
                         </Link>
+                        {whatsappUrl && (
+                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                                <MessageCircle className="h-4 w-4" /> WhatsApp
+                            </a>
+                        )}
                     </div>
                 </div>
                 <div className="text-sm text-muted-foreground">
