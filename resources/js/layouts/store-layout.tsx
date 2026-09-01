@@ -4,6 +4,7 @@ import StoreHeader from '@/components/store/store-header';
 import { SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 import { PropsWithChildren } from 'react';
+import { TbAlertCircle, TbCircleCheck } from 'react-icons/tb';
 
 export default function StoreLayout({
     title,
@@ -19,10 +20,16 @@ export default function StoreLayout({
             <StoreHeader />
             <main className="mx-auto max-w-6xl px-4 py-8">
                 {flash.success && (
-                    <div className="mb-6 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">{flash.success}</div>
+                    <div className="mb-6 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+                        <TbCircleCheck className="h-4 w-4 shrink-0" />
+                        {flash.success}
+                    </div>
                 )}
                 {flash.error && (
-                    <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{flash.error}</div>
+                    <div className="mb-6 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+                        <TbAlertCircle className="h-4 w-4 shrink-0" />
+                        {flash.error}
+                    </div>
                 )}
                 {withSidebar ? (
                     <div className="grid gap-8 lg:grid-cols-[240px_1fr]">

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -51,7 +52,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($catalog as $categoryName => $products) {
             $category = Category::query()->updateOrCreate(
-                ['slug' => \Illuminate\Support\Str::slug($categoryName)],
+                ['slug' => Str::slug($categoryName)],
                 ['name' => $categoryName]
             );
 
@@ -62,6 +63,7 @@ class DatabaseSeeder extends Seeder
                         'category_id' => $category->id,
                         'description' => $description,
                         'price' => $price,
+                        'stock' => 10,
                     ]
                 );
             }

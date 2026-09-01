@@ -1,8 +1,8 @@
+import { Input } from '@/components/ui/input';
 import { SharedData } from '@/types';
 import { useForm, usePage } from '@inertiajs/react';
-import { Search } from 'lucide-react';
 import { FormEventHandler } from 'react';
-import { Input } from '@/components/ui/input';
+import { TbSearch } from 'react-icons/tb';
 
 export default function SearchBar({ className = '' }: { className?: string }) {
     const { filters } = usePage<{ filters?: { q?: string; category?: string } } & SharedData>().props;
@@ -18,7 +18,7 @@ export default function SearchBar({ className = '' }: { className?: string }) {
 
     return (
         <form onSubmit={submit} className={`relative ${className}`}>
-            <Search className="pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-primary/50" />
+            <TbSearch className="text-primary/50 pointer-events-none absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
             <Input
                 value={data.q}
                 onChange={(event) => setData('q', event.target.value)}

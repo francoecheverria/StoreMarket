@@ -4,17 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Services\OrderService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class OrderController extends Controller
 {
+    public function __construct(private OrderService $orders) {}
+
     public function index(): Response
     {
         return Inertia::render('admin/orders/index', [
-            'orders' => Order::query()->with('user')->latest()->get(),
+            'orders' => Order::query()->with(['user', 'items'])->latest()->get(),
         ]);
     }
 
@@ -25,20 +27,23 @@ class OrderController extends Controller
         ]);
     }
 
-    public function update(Request $request, Order $order): RedirectResponse
+    public function close(Order $order): RedirectResponse
     {
-        $validated = $request->validate([
-            'status' => ['required', 'in:pending,paid,cancelled,shipped'],
-        ]);
+        $this->orders->close($order);
 
-        $order->update($validated);
+        return back()->with('success', 'Pedido cerrado.');
+    }
 
-        return back()->with('success', 'Pedido actualizado.');
+    public function cancel(Order $order): RedirectResponse
+    {
+        $this->orders->cancel($order);
+
+        return back()->with('success', 'Pedido cancelado. El stock fue renovado.');
     }
 
     public function destroy(Order $order): RedirectResponse
     {
-        $order->delete();
+        $this->orders->delete($order);
 
         return redirect()->route('admin.orders.index')->with('success', 'Pedido eliminado.');
     }

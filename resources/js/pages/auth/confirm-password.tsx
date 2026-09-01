@@ -1,6 +1,6 @@
 // Components
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { TbLoader2 } from 'react-icons/tb';
 import { FormEventHandler } from 'react';
 
 import InputError from '@/components/input-error';
@@ -49,7 +49,7 @@ export default function ConfirmPassword() {
 
                     <div className="flex items-center">
                         <Button className="w-full" disabled={processing}>
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            {processing && <TbLoader2 className="h-4 w-4 animate-spin" />}
                             Confirm password
                         </Button>
                     </div>

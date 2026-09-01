@@ -164,7 +164,7 @@ const Sidebar = React.forwardRef<
                 <SheetContent
                     data-sidebar="sidebar"
                     data-mobile="true"
-                    className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+                    className="bg-sidebar text-sidebar-foreground flex w-(--sidebar-width) flex-col p-0 [&>button]:top-3.5 [&>button]:right-3"
                     style={
                         {
                             '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
@@ -172,8 +172,8 @@ const Sidebar = React.forwardRef<
                     }
                     side={side}
                 >
-                    <SheetTitle className="sr-only">Sidebar Navigation</SheetTitle>
-                    <div className="flex h-full w-full flex-col">{children}</div>
+                    <SheetTitle className="border-sidebar-border shrink-0 border-b px-4 py-3.5 pr-12 text-base font-semibold">Menú</SheetTitle>
+                    <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">{children}</div>
                 </SheetContent>
             </Sheet>
         );

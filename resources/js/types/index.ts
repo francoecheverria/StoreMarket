@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react';
+import { IconType } from 'react-icons';
 
 export interface Auth {
     user: User | null;
@@ -17,7 +17,7 @@ export interface NavGroup {
 export interface NavItem {
     title: string;
     url: string;
-    icon?: LucideIcon | null;
+    icon?: IconType | null;
     isActive?: boolean;
 }
 
@@ -28,12 +28,27 @@ export interface Category {
     products_count?: number;
 }
 
+export interface Banner {
+    id: number;
+    image_url: string;
+    sort_order: number;
+}
+
+export interface ProductImage {
+    id: number;
+    image_url: string;
+    sort_order: number;
+}
+
 export interface Product {
     id: number;
     category_id: number;
     title: string;
     description: string;
     price: number | string;
+    stock: number;
+    image_url?: string | null;
+    images?: ProductImage[];
     category?: Category;
 }
 
@@ -56,10 +71,19 @@ export interface OrderItem {
 export interface Order {
     id: number;
     user_id: number | null;
+    customer_first_name: string | null;
+    customer_last_name: string | null;
+    customer_full_name: string;
+    customer_dni: string | null;
+    customer_address: string | null;
+    customer_phone: string | null;
+    customer_email: string | null;
+    customer_whatsapp_url: string | null;
     total: number | string;
     status: string;
     payment_status: string;
     payment_method: string | null;
+    stock_reserved: boolean;
     created_at: string;
     user?: User | null;
     items?: OrderItem[];

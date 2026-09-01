@@ -1,5 +1,6 @@
 import { Category } from '@/types';
 import { Link } from '@inertiajs/react';
+import { TbCategory2 } from 'react-icons/tb';
 
 export default function CategorySidebar({
     categories,
@@ -10,7 +11,10 @@ export default function CategorySidebar({
 }) {
     return (
         <aside className="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h2 className="mb-4 text-sm font-semibold tracking-wide text-primary uppercase">Categorías</h2>
+            <h2 className="text-primary mb-4 inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide uppercase">
+                <TbCategory2 className="h-4 w-4" />
+                Categorías
+            </h2>
             <nav className="space-y-1">
                 <Link
                     href={route('home')}

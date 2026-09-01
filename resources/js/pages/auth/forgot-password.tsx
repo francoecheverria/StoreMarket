@@ -1,6 +1,6 @@
 // Components
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { TbLoader2 } from 'react-icons/tb';
 import { FormEventHandler } from 'react';
 
 import InputError from '@/components/input-error';
@@ -47,7 +47,7 @@ export default function ForgotPassword({ status }: { status?: string }) {
 
                     <div className="my-6 flex items-center justify-start">
                         <Button className="w-full" disabled={processing}>
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            {processing && <TbLoader2 className="h-4 w-4 animate-spin" />}
                             Email password reset link
                         </Button>
                     </div>

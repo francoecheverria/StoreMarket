@@ -6,14 +6,17 @@ class WhatsApp
 {
     public static function number(): ?string
     {
-        $number = preg_replace('/\D+/', '', (string) config('store.whatsapp.number'));
-
-        return filled($number) ? $number : null;
+        return static::normalize((string) config('store.whatsapp.number'));
     }
 
     public static function url(?string $name = null, ?string $message = null): ?string
     {
-        $number = static::number();
+        return static::chatUrl(static::number(), $name, $message);
+    }
+
+    public static function chatUrl(?string $phone, ?string $name = null, ?string $message = null): ?string
+    {
+        $number = static::normalize($phone);
 
         if (! $number) {
             return null;
@@ -30,5 +33,38 @@ class WhatsApp
         }
 
         return $url;
+    }
+
+    public static function normalize(?string $phone): ?string
+    {
+        $digits = preg_replace('/\D+/', '', (string) $phone) ?: '';
+
+        if ($digits === '') {
+            return null;
+        }
+
+        if (str_starts_with($digits, '00')) {
+            $digits = substr($digits, 2);
+        }
+
+        if (str_starts_with($digits, '54')) {
+            return $digits;
+        }
+
+        $digits = ltrim($digits, '0');
+
+        if ($digits === '') {
+            return null;
+        }
+
+        if (strlen($digits) === 10) {
+            return '549'.$digits;
+        }
+
+        if (strlen($digits) === 11 && str_starts_with($digits, '9')) {
+            return '54'.$digits;
+        }
+
+        return '54'.$digits;
     }
 }

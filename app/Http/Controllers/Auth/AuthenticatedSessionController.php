@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\CartService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +33,10 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $sessionId = $request->session()->getId();
+        $cartToken = $request->session()->get('cart_token');
         $request->session()->regenerate();
 
-        app(\App\Services\CartService::class)->mergeGuestCart($sessionId, $request->user());
+        app(CartService::class)->mergeGuestCart($sessionId ?? $cartToken, $request->user());
 
         if ($request->user()->is_admin) {
             return redirect()->intended(route('admin.dashboard', absolute: false));

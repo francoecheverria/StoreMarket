@@ -4,22 +4,23 @@ import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
+import { TbLock, TbPalette, TbUser } from 'react-icons/tb';
 
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
         url: '/settings/profile',
-        icon: null,
+        icon: TbUser,
     },
     {
         title: 'Password',
         url: '/settings/password',
-        icon: null,
+        icon: TbLock,
     },
     {
         title: 'Appearance',
         url: '/settings/appearance',
-        icon: null,
+        icon: TbPalette,
     },
 ];
 
@@ -43,7 +44,8 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
                                     'bg-muted': currentPath === item.url,
                                 })}
                             >
-                                <Link href={item.url} prefetch>
+                                <Link href={item.url} prefetch className="gap-2">
+                                    {item.icon && <item.icon className="h-4 w-4" />}
                                     {item.title}
                                 </Link>
                             </Button>
