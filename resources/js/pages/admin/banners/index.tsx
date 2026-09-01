@@ -90,15 +90,21 @@ export default function AdminBanners({ banners, maxCount }: { banners: Banner[];
             <Head title="Banners" />
             <form onSubmit={submit} className="mx-auto max-w-3xl space-y-6 p-3 pb-8 md:p-4">
                 <FlashMessages />
-                <div>
-                    <h1 className="hidden items-center gap-2 text-2xl font-semibold md:inline-flex">
-                        <TbPhoto className="h-6 w-6" />
-                        Banners
-                    </h1>
-                    <p className="text-muted-foreground mt-1 text-sm">
-                        Elegí cuántos banners mostrar en el inicio (máximo {maxCount}) y cargá la imagen de cada uno. La medida óptima es{' '}
-                        <strong>1680 × 640 px</strong>.
-                    </p>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                        <h1 className="hidden items-center gap-2 text-2xl font-semibold md:inline-flex">
+                            <TbPhoto className="h-6 w-6" />
+                            Banners
+                        </h1>
+                        <p className="text-muted-foreground mt-1 text-sm">
+                            Elegí cuántos banners mostrar en el inicio (máximo {maxCount}) y cargá la imagen de cada uno. La medida óptima es{' '}
+                            <strong>1680 × 640 px</strong>.
+                        </p>
+                    </div>
+                    <Button type="submit" disabled={processing} className="hidden w-full gap-2 sm:flex sm:w-auto">
+                        <TbCheck className="h-4 w-4" />
+                        Guardar banners
+                    </Button>
                 </div>
 
                 <div className="grid max-w-xs gap-2">
@@ -150,14 +156,12 @@ export default function AdminBanners({ banners, maxCount }: { banners: Banner[];
                     </div>
                 )}
 
-                <Button
-                    type="submit"
-                    disabled={processing}
-                    className="bg-background sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-10 w-full gap-2 md:static md:bottom-auto md:w-auto"
-                >
-                    <TbCheck className="h-4 w-4" />
-                    Guardar banners
-                </Button>
+                <div className="bg-background sticky bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-10 -mx-3 border-t px-3 py-3 md:hidden">
+                    <Button type="submit" disabled={processing} className="w-full gap-2 md:w-auto">
+                        <TbCheck className="h-4 w-4" />
+                        Guardar banners
+                    </Button>
+                </div>
             </form>
         </AppLayout>
     );
