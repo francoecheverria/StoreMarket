@@ -143,12 +143,22 @@ export default function AdminBanners({ banners, maxCount }: { banners: Banner[];
                                         className="h-40 w-full rounded-lg object-cover"
                                     />
                                 )}
+                                <label
+                                    htmlFor={`banner-image-${index}`}
+                                    className="border-input flex cursor-pointer items-center gap-2 rounded-md border border-dashed px-3 py-2 text-sm"
+                                >
+                                    <TbPhoto className="h-4 w-4" />
+                                    {previews[index] ? 'Cambiar imagen' : 'Agregar imagen'}
+                                </label>
                                 <input
                                     id={`banner-image-${index}`}
                                     type="file"
                                     accept="image/jpeg,image/png,image/webp"
-                                    className="w-full max-w-full text-sm"
-                                    onChange={(event) => setImage(index, event.target.files?.[0] ?? null)}
+                                    className="sr-only"
+                                    onChange={(event) => {
+                                        setImage(index, event.target.files?.[0] ?? null);
+                                        event.target.value = '';
+                                    }}
                                 />
                                 <InputError message={errors[`slots.${index}.image`]} />
                             </div>
